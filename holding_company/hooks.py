@@ -21,6 +21,22 @@ app_license = "mit"
 # 	}
 # ]
 
+fixtures = [
+    # Custom Fields you added to existing ERPNext/Frappe DocTypes
+    {"dt": "Custom Field", "filters": [["fieldname", "in", ["custom_company_abbr", "custom_company"]]]},
+    
+    # Property Setter (any field modifications you made - hidden, mandatory, read-only, etc.)
+    {"dt": "Property Setter", "filters": [["property", "!=", ""]]},
+    
+    # Document Naming Settings (your custom naming patterns)
+    {"dt": "Document Naming Settings"},
+
+    {"dt": "Account", "filters": [["account_name", "like", "%custom%"], ["company", "=", "WIN BORN HOLDING CO., LTD."]]},
+
+]
+
+# Custom Fields + Property, Print Format, Naming Setting, Letterhead
+
 # Includes in <head>
 # ------------------
 
