@@ -31,9 +31,16 @@ fixtures = [
     # Document Naming Settings (your custom naming patterns)
     {"dt": "Document Naming Settings"},
 
-    {"dt": "Account", "filters": [["account_name", "like", "%custom%"], ["company", "=", "WIN BORN HOLDING CO., LTD."]]},
-
 ]
+
+setup_wizard_requires = ["assets/holding_company/js/setup_wizard.js"]
+#
+# Regional overrides not needed - using method override instead
+# regional_overrides = {
+#     "*": {
+#         "chart_of_accounts": "WIN BORN HOLDING Template"
+#     }
+# }
 
 # Custom Fields + Property, Print Format, Naming Setting, Letterhead
 
@@ -42,7 +49,7 @@ fixtures = [
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/holding_company/css/holding_company.css"
-# app_include_js = "/assets/holding_company/js/holding_company.js"
+app_include_js = "/assets/holding_company/js/holding_company.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/holding_company/css/holding_company.css"
@@ -59,7 +66,7 @@ fixtures = [
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Company" : "public/js/company.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -190,9 +197,8 @@ fixtures = [
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "holding_company.event.get_events"
-# }
+# Monkey patching is done in __init__.py instead of using override_whitelisted_methods
+# override_whitelisted_methods = {}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
