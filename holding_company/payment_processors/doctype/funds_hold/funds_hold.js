@@ -1,5 +1,11 @@
+console.log('Funds Hold JS file loaded');
+
 frappe.ui.form.on('Funds Hold', {
+    refresh: function(frm) {
+        console.log('Funds Hold form refreshed');
+    },
     payment_entry: function(frm) {
+        console.log('Payment entry changed:', frm.doc.payment_entry);
         if (frm.doc.payment_entry && frm.doc.company) {
             fetch_mode_of_payment_accounts(frm);
         }
