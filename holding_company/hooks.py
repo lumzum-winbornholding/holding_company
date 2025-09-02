@@ -30,6 +30,9 @@ fixtures = [
     
     # Document Naming Settings (your custom naming patterns)
     {"dt": "Document Naming Settings"},
+    
+    # Client Scripts for custom JavaScript functionality
+    "fixtures/client_script.json",
 
 ]
 

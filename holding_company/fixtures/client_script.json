@@ -1,0 +1,10 @@
+[
+ {
+  "name": "Funds Hold-Form",
+  "dt": "Funds Hold",
+  "view": "Form",
+  "script": "frappe.ui.form.on('Funds Hold', {\n    transaction_fee: function(frm) {\n        if (frm.doc.transaction_fee) {\n            // Calculate VAT (7%)\n            let vat = frm.doc.transaction_fee * 0.07;\n            frm.set_value('transaction_fee_vat', vat);\n            \n            // Calculate net amount if gross amount exists\n            if (frm.doc.gross_amount) {\n                let net = frm.doc.gross_amount - frm.doc.transaction_fee - vat;\n                frm.set_value('net_amount', net);\n            }\n        }\n    },\n\n    gross_amount: function(frm) {\n        if (frm.doc.gross_amount && frm.doc.transaction_fee && frm.doc.transaction_fee_vat) {\n            let net = frm.doc.gross_amount - frm.doc.transaction_fee - frm.doc.transaction_fee_vat;\n            frm.set_value('net_amount', net);\n        }\n    }\n});",
+  "enabled": 1,
+  "doctype": "Client Script"
+ }
+]
