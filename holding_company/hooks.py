@@ -21,6 +21,15 @@ app_license = "mit"
 # 	}
 # ]
 
+# Fixtures
+# --------
+fixtures = [
+	"Custom Field",
+	"Property Setter", 
+	"Print Format",
+	"Document Naming Settings"
+]
+
 # Includes in <head>
 # ------------------
 
