@@ -1,0 +1,232 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-09-01 00:58:45.479375",
+ "custom": 1,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_x4k4",
+  "amended_from",
+  "naming_series",
+  "journal_entry",
+  "section_break_diwh",
+  "posting_date",
+  "sales_invoice",
+  "payment_entry",
+  "column_break_hjmp",
+  "company",
+  "custom_company_abbr",
+  "accounts_section",
+  "payment_processor_account",
+  "hold_account",
+  "loss_account",
+  "column_break_vmgr",
+  "bank_account",
+  "transaction_fee_account",
+  "transaction_section",
+  "transaction_id",
+  "gross_amount",
+  "column_break_fhxt",
+  "transaction_fee",
+  "transaction_fee_vat",
+  "net_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_x4k4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Funds Hold",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_diwh",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "link_filters": "[[\"Sales Invoice\",\"company\",\"=\",\"eval: doc.company\"]]",
+   "options": "Sales Invoice",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "Payment Entry",
+   "link_filters": "[[\"Payment Entry\",\"reference_name\",\"=\",\"eval: doc.sales_invoice\"],[\"Payment Entry\",\"mode_of_payment\",\"!=\",\"Cash, Wire Transfer\"],[\"Payment Entry\",\"status\",\"=\",\"Submitted\"]]",
+   "options": "Payment Entry",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hjmp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "company.abbr",
+   "fieldname": "custom_company_abbr",
+   "fieldtype": "Data",
+   "label": "Company Abbr",
+   "read_only": 1
+  },
+  {
+   "fieldname": "accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "payment_processor_account",
+   "fieldtype": "Link",
+   "label": "Payment Processor Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hold_account",
+   "fieldtype": "Link",
+   "label": "Hold Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loss_account",
+   "fieldtype": "Link",
+   "label": "Loss Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vmgr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transaction_fee_account",
+   "fieldtype": "Link",
+   "label": "Transaction Fee Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transaction_section",
+   "fieldtype": "Section Break",
+   "label": "Transaction"
+  },
+  {
+   "fetch_from": "payment_entry.reference_no",
+   "fieldname": "transaction_id",
+   "fieldtype": "Data",
+   "label": "Transaction ID",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "payment_entry.paid_amount",
+   "fieldname": "gross_amount",
+   "fieldtype": "Currency",
+   "label": "Gross Amount",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_fhxt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transaction_fee",
+   "fieldtype": "Currency",
+   "label": "Transaction Fee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transaction_fee_vat",
+   "fieldtype": "Currency",
+   "label": "Transaction Fee Vat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "net_amount",
+   "fieldtype": "Currency",
+   "label": "Net Amount",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-01 01:44:33.701614",
+ "modified_by": "Administrator",
+ "module": "Payment Processors",
+ "name": "Funds Hold",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
