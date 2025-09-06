@@ -1,0 +1,563 @@
+{
+  "name": "Holding Company",
+  "country_code": "TH",
+  "tree": {
+    "Application of Funds (Assets)": {
+      "account_number": "1000",
+      "account_type": "",
+      "root_type": "Asset",
+      "is_group": 1,
+      "Current Assets": {
+        "account_number": "1100-1600",
+        "account_type": "",
+        "is_group": 1,
+        "Cash In Hand": {
+          "account_number": "1100",
+          "account_type": "Cash",
+          "is_group": 1,
+          "Cash": {
+            "account_number": "1110",
+            "account_type": "Cash",
+            "is_group": 0
+          }
+        },
+        "Bank Accounts": {
+          "account_number": "1200",
+          "account_type": "Bank",
+          "is_group": 1,
+          "Bank Account": {
+            "account_type": "Bank",
+            "is_group": 0
+          }
+        },
+        "Payment Processor Accounts": {
+          "account_number": "1250",
+          "account_type": "",
+          "is_group": 1
+        },
+        "Accounts Receivable": {
+          "account_number": "1300",
+          "account_type": "",
+          "is_group": 1,
+          "Debtors": {
+            "account_number": "1310",
+            "account_type": "Receivable",
+            "is_group": 0
+          },
+          "Interests Receivable": {
+            "account_number": "1320",
+            "account_type": "Receivable",
+            "is_group": 0
+          },
+          "Share Subscriptions Receivable": {
+            "account_number": "1330",
+            "account_type": "Receivable",
+            "is_group": 0
+          }
+        },
+        "Stock Assets": {
+          "account_number": "1400",
+          "account_type": "Stock",
+          "is_group": 1,
+          "Stock In Hand": {
+            "account_number": "1410",
+            "account_type": "Stock",
+            "is_group": 0
+          },
+          "Work In Progress": {
+            "account_number": "1420",
+            "account_type": "",
+            "is_group": 0
+          },
+          "Finished Goods": {
+            "account_number": "1430",
+            "account_type": "",
+            "is_group": 0
+          },
+          "Goods In Transit": {
+            "account_number": "1440",
+            "account_type": "",
+            "is_group": 0
+          }
+        },
+        "Tax Assets": {
+          "account_number": "1500",
+          "account_type": "",
+          "is_group": 1,
+          "VAT (Assets)": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 1 (Assets)": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 2 (Assets)": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 3 (Assets)": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 5 (Assets)": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 10 (Assets)": {
+            "account_type": "Tax",
+            "is_group": 0
+          }
+        },
+        "Loans and Advances (Assets)": {
+          "account_number": "1600",
+          "account_type": "",
+          "is_group": 1,
+          "Employee Advances": {
+            "account_number": "1610",
+            "account_type": "Payable",
+            "is_group": 0
+          },
+          "Employee Loans": {
+            "account_number": "1615",
+            "account_type": "",
+            "is_group": 0
+          },
+          "Investee Loans": {
+            "account_number": "1620",
+            "account_type": "",
+            "is_group": 0
+          },
+          "Collaterals (Assets)": {
+            "account_number": "1640",
+            "account_type": "",
+            "is_group": 0
+          }
+        },
+        "Securities and Deposits": {
+          "account_number": "1650",
+          "account_type": "",
+          "is_group": 1,
+          "Earnest Money": {
+            "account_number": "1651",
+            "account_type": "",
+            "is_group": 0
+          },
+          "Security Deposits (Assets)": {
+            "account_number": "1652",
+            "account_type": "",
+            "is_group": 0
+          }
+        }
+      },
+      "Fixed Assets": {
+        "account_number": "1700",
+        "account_type": "",
+        "is_group": 1,
+        "Capital Equipments": {
+          "account_number": "1710",
+          "account_type": "Fixed Asset",
+          "is_group": 0
+        },
+        "Electronic Equipments": {
+          "account_number": "1720",
+          "account_type": "Fixed Asset",
+          "is_group": 0
+        },
+        "Furnitures and Fixtures": {
+          "account_number": "1730",
+          "account_type": "Fixed Asset",
+          "is_group": 0
+        },
+        "Office Equipments": {
+          "account_number": "1740",
+          "account_type": "Fixed Asset",
+          "is_group": 0
+        },
+        "Plants and Machineries": {
+          "account_number": "1750",
+          "account_type": "Fixed Asset",
+          "is_group": 0
+        },
+        "Buildings": {
+          "account_number": "1760",
+          "account_type": "Fixed Asset",
+          "is_group": 0
+        },
+        "Softwares": {
+          "account_number": "1770",
+          "account_type": "Fixed Asset",
+          "is_group": 0
+        },
+        "Accumulated Depreciation": {
+          "account_number": "1780",
+          "account_type": "Accumulated Depreciation",
+          "is_group": 0
+        },
+        "CWIP Account": {
+          "account_number": "1790",
+          "account_type": "Capital Work in Progress",
+          "is_group": 0
+        }
+      },
+      "Investments": {
+        "account_number": "1800",
+        "account_type": "",
+        "is_group": 1,
+        "Child Companies Investments": {
+          "account_number": "1810-1830",
+          "account_type": "",
+          "is_group": 1
+        }
+      },
+      "Temporary Accounts": {
+        "account_number": "1900",
+        "account_type": "",
+        "is_group": 1,
+        "Temporary Opening": {
+          "account_number": "1910",
+          "account_type": "Temporary",
+          "is_group": 0
+        }
+      }
+    },
+    "Source of Funds (Liabilities)": {
+      "account_number": "2000",
+      "account_type": "",
+      "root_type": "Liability",
+      "is_group": 1,
+      "Current Liabilities": {
+        "account_number": "2100-2400",
+        "account_type": "",
+        "is_group": 1,
+        "Accounts Payable": {
+          "account_number": "2100",
+          "account_type": "",
+          "is_group": 1,
+          "Creditors": {
+            "account_number": "2110",
+            "account_type": "Payable",
+            "is_group": 0
+          },
+          "Payroll Payable": {
+            "account_number": "2120",
+            "account_type": "",
+            "is_group": 0
+          }
+        },
+        "Stock Liabilities": {
+          "account_number": "2200",
+          "account_type": "",
+          "is_group": 1,
+          "Stock Received But Not Billed": {
+            "account_number": "2210",
+            "account_type": "Stock Received But Not Billed",
+            "is_group": 0
+          },
+          "Asset Received But Not Billed": {
+            "account_number": "2211",
+            "account_type": "Asset Received But Not Billed",
+            "is_group": 0
+          }
+        },
+        "Duties and Taxes": {
+          "account_number": "2300",
+          "account_type": "Tax",
+          "is_group": 1,
+          "TDS Payable": {
+            "account_number": "2310",
+            "account_type": "",
+            "is_group": 0
+          },
+          "VAT": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 1": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 2": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 3": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 5": {
+            "account_type": "Tax",
+            "is_group": 0
+          },
+          "WHT 10": {
+            "account_type": "Tax",
+            "is_group": 0
+          }
+        },
+        "Loans (Liabilities)": {
+          "account_number": "2400",
+          "account_type": "",
+          "is_group": 1,
+          "Secured Loans": {
+            "account_number": "2410",
+            "account_type": "",
+            "is_group": 0
+          },
+          "Unsecured Loans": {
+            "account_number": "2420",
+            "account_type": "",
+            "is_group": 0
+          },
+          "Bank Overdraft Account": {
+            "account_number": "2430",
+            "account_type": "",
+            "is_group": 0
+          },
+          "Collaterals (Liabilities)": {
+            "account_number": "2440",
+            "account_type": "",
+            "is_group": 0
+          }
+        },
+        "Securities and Deposits (Liabilities)": {
+          "account_number": "2450",
+          "account_type": "",
+          "is_group": 1,
+          "Earnest Money (Liabilities)": {
+            "account_number": "2451",
+            "account_type": "",
+            "is_group": 0
+          },
+          "Security Deposits (Liabilities)": {
+            "account_number": "2452",
+            "account_type": "",
+            "is_group": 0
+          }
+        }
+      }
+    },
+    "Equity": {
+      "account_number": "3000",
+      "account_type": "",
+      "root_type": "Equity",
+      "is_group": 1,
+      "Capital Stock": {
+        "account_number": "3100",
+        "account_type": "Equity",
+        "is_group": 0
+      },
+      "Dividends Paid": {
+        "account_number": "3200",
+        "account_type": "Equity",
+        "is_group": 0
+      },
+      "Opening Balance Equity": {
+        "account_number": "3300",
+        "account_type": "Equity",
+        "is_group": 0
+      },
+      "Retained Earnings": {
+        "account_number": "3400",
+        "account_type": "Equity",
+        "is_group": 0
+      }
+    },
+    "Income": {
+      "account_number": "4000",
+      "account_type": "",
+      "root_type": "Income",
+      "is_group": 1,
+      "Direct Income": {
+        "account_number": "4100",
+        "account_type": "",
+        "is_group": 1,
+        "Sales": {
+          "account_number": "4110",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Service": {
+          "account_number": "4120",
+          "account_type": "",
+          "is_group": 0
+        }
+      },
+      "Indirect Income": {
+        "account_number": "4200",
+        "account_type": "",
+        "is_group": 1,
+        "Loan Interests": {
+          "account_number": "4210",
+          "account_type": "",
+          "is_group": 0
+        }
+      },
+      "Dividend Income": {
+        "account_number": "4300",
+        "account_type": "",
+        "is_group": 1
+      }
+    },
+    "Expenses": {
+      "account_number": "5000",
+      "account_type": "",
+      "root_type": "Expense",
+      "is_group": 1,
+      "Direct Expenses": {
+        "account_number": "5100",
+        "account_type": "",
+        "is_group": 1,
+        "Stock Expenses": {
+          "account_number": "5110",
+          "account_type": "",
+          "is_group": 1,
+          "Cost of Goods Sold": {
+            "account_number": "5111",
+            "account_type": "Cost of Goods Sold",
+            "is_group": 0
+          },
+          "Expenses Included In Asset Valuation": {
+            "account_number": "5112",
+            "account_type": "Expenses Included In Asset Valuation",
+            "is_group": 0
+          },
+          "Expenses Included In Valuation": {
+            "account_number": "5118",
+            "account_type": "Expenses Included In Valuation",
+            "is_group": 0
+          },
+          "Stock Adjustment": {
+            "account_number": "5119",
+            "account_type": "Stock Adjustment",
+            "is_group": 0
+          }
+        }
+      },
+      "Indirect Expenses": {
+        "account_number": "5200",
+        "account_type": "",
+        "is_group": 1,
+        "Administrative Expenses": {
+          "account_number": "5201",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Commission on Sales": {
+          "account_number": "5202",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Depreciation": {
+          "account_number": "5203",
+          "account_type": "Depreciation",
+          "is_group": 0
+        },
+        "Entertainment Expenses": {
+          "account_number": "5204",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Freight and Forwarding Charges": {
+          "account_number": "5205",
+          "account_type": "Chargeable",
+          "is_group": 0
+        },
+        "Legal Expenses": {
+          "account_number": "5206",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Marketing Expenses": {
+          "account_number": "5207",
+          "account_type": "Chargeable",
+          "is_group": 0
+        },
+        "Office Maintenance Expenses": {
+          "account_number": "5208",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Office Rent": {
+          "account_number": "5209",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Postal Expenses": {
+          "account_number": "5210",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Print and Stationery": {
+          "account_number": "5211",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Round Off": {
+          "account_number": "5212",
+          "account_type": "Round Off",
+          "is_group": 0
+        },
+        "Salary": {
+          "account_number": "5213",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Sales Expenses": {
+          "account_number": "5214",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Telephone Expenses": {
+          "account_number": "5215",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Travel Expenses": {
+          "account_number": "5216",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Utility Expenses": {
+          "account_number": "5217",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Write Off": {
+          "account_number": "5218",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Exchange Gain/Loss": {
+          "account_number": "5219",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Gain/Loss on Asset Disposal": {
+          "account_number": "5220",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Miscellaneous Expenses": {
+          "account_number": "5221",
+          "account_type": "Chargeable",
+          "is_group": 0
+        },
+        "Impairments": {
+          "account_number": "5222",
+          "account_type": "",
+          "is_group": 0
+        },
+        "Interest Expenses": {
+          "account_number": "5223",
+          "account_type": "",
+          "is_group": 0
+        }
+      },
+      "Banking Expenses": {
+        "account_number": "5300",
+        "account_type": "",
+        "is_group": 1
+      }
+    }
+  }
+}

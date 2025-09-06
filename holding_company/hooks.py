@@ -92,7 +92,7 @@ fixtures = [
 # ------------
 
 # before_install = "holding_company.install.before_install"
-# after_install = "holding_company.install.after_install"
+# after_install = "holding_company.overrides.apply_patches"
 
 # Uninstallation
 # ------------
@@ -186,6 +186,10 @@ fixtures = [
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "holding_company.event.get_events"
 # }
+
+# Whitelisted Methods
+# -------------------
+# whitelisted_methods = []
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
@@ -205,7 +209,7 @@ fixtures = [
 
 # Request Events
 # ----------------
-# before_request = ["holding_company.utils.before_request"]
+# before_request = ["holding_company.overrides.apply_patches"]
 # after_request = ["holding_company.utils.after_request"]
 
 # Job Events
