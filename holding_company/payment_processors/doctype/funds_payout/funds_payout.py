@@ -41,8 +41,8 @@ class FundsPayout(Document):
 			# Created from Funds Hold: Credit gross to hold_account
 			je.append("accounts", {
 				"account": self.hold_account,
-				"credit_in_account_currency": self.gross_amount
-                "reference_type": "Payment Entry",
+				"credit_in_account_currency": self.gross_amount,
+				"reference_type": "Payment Entry",
 				"reference_name": self.payment_entry
 			})
 		else:
