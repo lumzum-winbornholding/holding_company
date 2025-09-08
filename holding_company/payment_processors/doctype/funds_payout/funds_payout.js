@@ -1,5 +1,12 @@
 frappe.ui.form.on('Funds Payout', {
+	setup_new: function(frm) {
+		frm.set_value('journal_entry', '');
+	},
+	
 	refresh: function(frm) {
+		if (frm.doc.__islocal) {
+			frm.set_value('journal_entry', '');
+		}
 		// If created from Funds Hold, populate fields
 		if (frm.doc.funds_hold && !frm.doc.transaction_fee) {
 			populate_from_funds_hold(frm);
@@ -10,6 +17,7 @@ frappe.ui.form.on('Funds Payout', {
 		if (frm.doc.funds_hold) {
 			populate_from_funds_hold(frm);
 		}
+		frm.set_value('journal_entry', '');
 	},
 	
 	payment_entry: function(frm) {

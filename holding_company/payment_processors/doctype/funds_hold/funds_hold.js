@@ -1,4 +1,10 @@
 frappe.ui.form.on('Funds Hold', {
+	refresh: function(frm) {
+		if (frm.doc.__islocal) {
+			frm.set_value('journal_entry', '');
+		}
+	},
+	
 	payment_entry: function(frm) {
 		if (frm.doc.payment_entry && frm.doc.company) {
 			fetch_mode_of_payment_accounts(frm);

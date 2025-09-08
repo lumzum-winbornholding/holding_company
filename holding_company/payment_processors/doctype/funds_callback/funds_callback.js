@@ -1,5 +1,12 @@
 frappe.ui.form.on('Funds Callback', {
+	setup_new: function(frm) {
+		frm.set_value('journal_entry', '');
+	},
+	
 	refresh: function(frm) {
+		if (frm.doc.__islocal) {
+			frm.set_value('journal_entry', '');
+		}
 		// Validate that document must be created from Funds Hold or Funds Payout
 		if (!frm.doc.funds_hold && !frm.doc.funds_payout) {
 			frappe.msgprint({
@@ -21,12 +28,14 @@ frappe.ui.form.on('Funds Callback', {
 		if (frm.doc.funds_hold) {
 			populate_from_origin(frm);
 		}
+		frm.set_value('journal_entry', '');
 	},
 	
 	funds_payout: function(frm) {
 		if (frm.doc.funds_payout) {
 			populate_from_origin(frm);
 		}
+		frm.set_value('journal_entry', '');
 	}
 });
 
