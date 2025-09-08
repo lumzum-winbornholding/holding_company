@@ -1,15 +1,20 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "app": "holding_company",
  "autoname": "naming_series:",
- "creation": "2025-09-01 00:58:45.479375",
+ "creation": "2025-09-08 17:44:00.198913",
+ "custom": 1,
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_x4k4",
   "amended_from",
   "naming_series",
+  "column_break_cxkb",
   "journal_entry",
+  "funds_hold",
   "section_break_diwh",
   "posting_date",
   "sales_invoice",
@@ -42,7 +47,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Funds Hold",
+   "options": "Funds Payout",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
@@ -56,11 +61,22 @@
    "search_index": 1
   },
   {
+   "fieldname": "column_break_cxkb",
+   "fieldtype": "Column Break"
+  },
+  {
    "allow_on_submit": 1,
    "fieldname": "journal_entry",
    "fieldtype": "Link",
    "label": "Journal Entry",
    "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "funds_hold",
+   "fieldtype": "Link",
+   "label": "Funds Hold",
+   "options": "Funds Hold",
    "read_only": 1
   },
   {
@@ -202,13 +218,18 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-09-01 01:44:33.701614",
- "modified_by": "Administrator",
+ "links": [
+  {
+   "link_doctype": "Funds Callback",
+   "link_fieldname": "funds_payout"
+  }
+ ],
+ "modified": "2025-09-08 18:40:32.437961",
+ "modified_by": "lumzum@winbornholding.com",
  "module": "Payment Processors",
- "name": "Funds Hold",
+ "name": "Funds Payout",
  "naming_rule": "By \"Naming Series\" field",
- "owner": "Administrator",
+ "owner": "lumzum@winbornholding.com",
  "permissions": [
   {
    "amend": 1,
