@@ -27,7 +27,8 @@ fixtures = [
 	"Custom Field",
 	"Property Setter", 
 	"Print Format",
-	"Document Naming Settings"
+	"Document Naming Settings",
+	"Workspace"
 ]
 
 # Includes in <head>

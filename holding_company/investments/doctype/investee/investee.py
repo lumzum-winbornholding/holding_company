@@ -20,27 +20,33 @@ class Investee(Document):
 def make_contact(source_name, target_doc=None):
 	from frappe.model.mapper import get_mapped_doc
 	
+	def postprocess(source, target):
+		target.company_name = source.investee_name
+		target.append("links", {
+			"link_doctype": "Investee",
+			"link_name": source.name
+		})
+	
 	return get_mapped_doc("Investee", source_name, {
 		"Investee": {
-			"doctype": "Contact",
-			"field_map": {
-				"investee_name": "company_name",
-				"name": "investee"
-			}
+			"doctype": "Contact"
 		}
-	}, target_doc)
+	}, target_doc, postprocess)
 
 
 @frappe.whitelist()
 def make_address(source_name, target_doc=None):
 	from frappe.model.mapper import get_mapped_doc
 	
+	def postprocess(source, target):
+		target.address_title = source.investee_name
+		target.append("links", {
+			"link_doctype": "Investee",
+			"link_name": source.name
+		})
+	
 	return get_mapped_doc("Investee", source_name, {
 		"Investee": {
-			"doctype": "Address",
-			"field_map": {
-				"investee_name": "address_title",
-				"name": "investee"
-			}
+			"doctype": "Address"
 		}
-	}, target_doc)
+	}, target_doc, postprocess)

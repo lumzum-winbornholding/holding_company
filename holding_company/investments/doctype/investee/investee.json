@@ -3,6 +3,7 @@
  "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2025-09-09 01:26:28.755408",
+ "custom": 1,
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -10,7 +11,8 @@
   "investee_name",
   "tax_id",
   "investment_type",
-  "contact_and_address_tab",
+  "section_break_dnfc",
+  "investee_accounts",
   "address_contacts",
   "address_html",
   "column_break1",
@@ -55,9 +57,16 @@
    "reqd": 1
   },
   {
-   "fieldname": "contact_and_address_tab",
-   "fieldtype": "Tab Break",
-   "label": "Address & Contact"
+   "fieldname": "section_break_dnfc",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "investee_accounts",
+   "fieldtype": "Table",
+   "label": "Investee Accounts",
+   "options": "Investee Accounts",
+   "reqd": 1
   },
   {
    "fieldname": "address_contacts",
@@ -130,7 +139,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-09 01:30:31.626724",
+ "modified": "2025-09-09 02:35:35.092802",
  "modified_by": "lumzum@winbornholding.com",
  "module": "Investments",
  "name": "Investee",
@@ -151,7 +160,9 @@
   }
  ],
  "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "investee_name"
 }

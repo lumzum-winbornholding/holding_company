@@ -1,0 +1,227 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-09-09 02:48:46.879452",
+ "custom": 1,
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_29ww",
+  "amended_from",
+  "naming_series",
+  "details_section",
+  "investee",
+  "tax_id",
+  "column_break_gqhr",
+  "date",
+  "column_break_inxg",
+  "company",
+  "custom_company_abbr",
+  "accounts_section",
+  "investment_account",
+  "column_break_bfaq",
+  "dividend_income_account",
+  "bank_account",
+  "investment_section",
+  "investment_amount",
+  "column_break_blwp",
+  "no_of_shares",
+  "share_rate",
+  "terms_section",
+  "dividend_frequency",
+  "column_break_wwxc",
+  "purpose"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_29ww",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Investment Application",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "reqd": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "investee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Investee",
+   "options": "Investee",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "investee.tax_id",
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "label": "Tax ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_gqhr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_inxg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "company.abbr",
+   "fieldname": "custom_company_abbr",
+   "fieldtype": "Data",
+   "label": "Company Abbr",
+   "read_only": 1
+  },
+  {
+   "fieldname": "accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "investment_account",
+   "fieldtype": "Link",
+   "label": "Investment Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bfaq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dividend_income_account",
+   "fieldtype": "Link",
+   "label": "Dividend Income Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "investment_section",
+   "fieldtype": "Section Break",
+   "label": "Investment"
+  },
+  {
+   "bold": 1,
+   "fieldname": "investment_amount",
+   "fieldtype": "Currency",
+   "label": "Investment Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_blwp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_of_shares",
+   "fieldtype": "Data",
+   "label": "No. of Shares",
+   "reqd": 1
+  },
+  {
+   "fieldname": "share_rate",
+   "fieldtype": "Currency",
+   "label": "Share Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "terms_section",
+   "fieldtype": "Section Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "dividend_frequency",
+   "fieldtype": "Select",
+   "label": "Dividend Frequency",
+   "options": "Monthly\nQuarterly\nAnnually",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wwxc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Small Text",
+   "label": "Purpose",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Investment",
+   "link_fieldname": "investment_application"
+  }
+ ],
+ "modified": "2025-09-09 03:10:16.139621",
+ "modified_by": "lumzum@winbornholding.com",
+ "module": "Investments",
+ "name": "Investment Application",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "lumzum@winbornholding.com",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

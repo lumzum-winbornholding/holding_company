@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-09 02:15:20.104869",
+ "custom": 1,
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "investment_account",
+  "dividend_income_account",
+  "bank_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "investment_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Investment Account",
+   "link_filters": "[[\"Account\",\"company\",\"=\",\"eval: doc.company\"],[\"Account\",\"root_type\",\"=\",\"Asset\"]]",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dividend_income_account",
+   "fieldtype": "Link",
+   "label": "Dividend Income Account",
+   "link_filters": "[[\"Account\",\"company\",\"=\",\"eval: doc.company\"],[\"Account\",\"account_type\",\"=\",\"Indirect Income\"]]",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "link_filters": "[[\"Account\",\"company\",\"=\",\"eval: doc.company\"],[\"Account\",\"account_type\",\"=\",\"Bank\"]]",
+   "options": "Account",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-09 02:35:34.986802",
+ "modified_by": "lumzum@winbornholding.com",
+ "module": "Investments",
+ "name": "Investee Accounts",
+ "owner": "lumzum@winbornholding.com",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
