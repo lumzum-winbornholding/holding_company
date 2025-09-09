@@ -2,18 +2,17 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2025-09-09 02:04:39.574419",
+ "creation": "2025-09-10 03:48:48.207099",
  "custom": 1,
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_29ww",
   "amended_from",
   "naming_series",
-  "investment_application",
-  "journal_entry",
   "details_section",
-  "investee",
+  "borrower",
   "tax_id",
   "column_break_gqhr",
   "date",
@@ -21,24 +20,18 @@
   "company",
   "custom_company_abbr",
   "accounts_section",
-  "investment_account",
-  "column_break_sgwd",
-  "dividend_income_account",
+  "loan_account",
+  "column_break_bfaq",
+  "interest_income_account",
   "bank_account",
   "investment_section",
-  "investment_amount",
+  "loan_amount",
   "column_break_blwp",
-  "no_of_shares",
-  "share_rate",
+  "interest_rate",
   "terms_section",
-  "dividend_frequency",
+  "repayment_frequency",
   "column_break_wwxc",
-  "purpose",
-  "investment_tracker_section",
-  "dividend_paid",
-  "column_break_ruef",
-  "roi",
-  "custom_status"
+  "purpose"
  ],
  "fields": [
   {
@@ -50,7 +43,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Investment",
+   "options": "Lending Application",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
@@ -63,36 +56,21 @@
    "reqd": 1
   },
   {
-   "fieldname": "investment_application",
-   "fieldtype": "Link",
-   "label": "Investment Application",
-   "options": "Investment Application",
-   "read_only": 1
-  },
-  {
-   "allow_on_submit": 1,
-   "fieldname": "journal_entry",
-   "fieldtype": "Link",
-   "label": "Journal Entry",
-   "options": "Journal Entry",
-   "read_only": 1
-  },
-  {
    "fieldname": "details_section",
    "fieldtype": "Section Break",
    "label": "Details"
   },
   {
-   "fieldname": "investee",
+   "fieldname": "borrower",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Investee",
-   "options": "Investee",
+   "label": "Borrower",
+   "options": "Borrower",
    "reqd": 1,
    "search_index": 1
   },
   {
-   "fetch_from": "investee.tax_id",
+   "fetch_from": "borrower.tax_id",
    "fieldname": "tax_id",
    "fieldtype": "Data",
    "label": "Tax ID",
@@ -134,20 +112,20 @@
    "label": "Accounts"
   },
   {
-   "fieldname": "investment_account",
+   "fieldname": "loan_account",
    "fieldtype": "Link",
-   "label": "Investment Account",
+   "label": "Loan Account",
    "options": "Account",
    "read_only": 1
   },
   {
-   "fieldname": "column_break_sgwd",
+   "fieldname": "column_break_bfaq",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "dividend_income_account",
+   "fieldname": "interest_income_account",
    "fieldtype": "Link",
-   "label": "Dividend Income Account",
+   "label": "Interest Income Account",
    "options": "Account",
    "read_only": 1
   },
@@ -165,9 +143,9 @@
   },
   {
    "bold": 1,
-   "fieldname": "investment_amount",
+   "fieldname": "loan_amount",
    "fieldtype": "Currency",
-   "label": "Investment Amount",
+   "label": "Loan Amount",
    "reqd": 1
   },
   {
@@ -175,16 +153,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "no_of_shares",
-   "fieldtype": "Data",
-   "label": "No. of Shares",
+   "fieldname": "interest_rate",
+   "fieldtype": "Percent",
+   "label": "Interest Rate (Yearly)",
    "reqd": 1
-  },
-  {
-   "fieldname": "share_rate",
-   "fieldtype": "Currency",
-   "label": "Share Rate",
-   "read_only": 1
   },
   {
    "fieldname": "terms_section",
@@ -192,9 +164,9 @@
    "label": "Terms"
   },
   {
-   "fieldname": "dividend_frequency",
+   "fieldname": "repayment_frequency",
    "fieldtype": "Select",
-   "label": "Dividend Frequency",
+   "label": "Repayment Frequency",
    "options": "Monthly\nQuarterly\nAnnually",
    "reqd": 1
   },
@@ -207,34 +179,6 @@
    "fieldtype": "Small Text",
    "label": "Purpose",
    "reqd": 1
-  },
-  {
-   "fieldname": "investment_tracker_section",
-   "fieldtype": "Section Break",
-   "label": "Investment Tracker"
-  },
-  {
-   "fieldname": "dividend_paid",
-   "fieldtype": "Currency",
-   "label": "Dividend Paid",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_ruef",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "roi",
-   "fieldtype": "Currency",
-   "label": "ROI",
-   "read_only": 1
-  },
-  {
-   "fieldname": "custom_status",
-   "fieldtype": "Select",
-   "label": "Investment Status",
-   "options": "Unrecovered\nRecovered",
-   "read_only": 1
   }
  ],
  "grid_page_length": 50,
@@ -242,14 +186,14 @@
  "is_submittable": 1,
  "links": [
   {
-   "link_doctype": "Investment Return",
-   "link_fieldname": "investment"
+   "link_doctype": "Lending",
+   "link_fieldname": "lending_application"
   }
  ],
- "modified": "2025-09-10 03:59:31.444162",
+ "modified": "2025-09-10 03:54:07.811831",
  "modified_by": "lumzum@winbornholding.com",
  "module": "Investments",
- "name": "Investment",
+ "name": "Lending Application",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "lumzum@winbornholding.com",
  "permissions": [

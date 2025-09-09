@@ -26,7 +26,7 @@
   "column_break_fqil",
   "dividend_income_account",
   "bank_account",
-  "investment_section",
+  "return_section",
   "dividend_amount",
   "column_break_blwp"
  ],
@@ -149,9 +149,9 @@
    "read_only": 1
   },
   {
-   "fieldname": "investment_section",
+   "fieldname": "return_section",
    "fieldtype": "Section Break",
-   "label": "Investment"
+   "label": "Return"
   },
   {
    "bold": 1,
@@ -169,7 +169,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-09 03:09:46.022081",
+ "modified": "2025-09-10 04:05:54.180670",
  "modified_by": "lumzum@winbornholding.com",
  "module": "Investments",
  "name": "Investment Return",

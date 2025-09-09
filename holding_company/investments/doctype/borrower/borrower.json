@@ -2,27 +2,28 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2025-09-09 01:26:28.755408",
+ "creation": "2025-09-10 03:18:11.618703",
  "custom": 1,
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "investee_name",
+  "borrower_name",
   "tax_id",
-  "investment_type",
-  "section_break_dnfc",
-  "investee_accounts",
+  "borrower_type",
+  "accounts_section",
+  "borrower_accounts",
   "address_contacts",
   "address_html",
   "column_break1",
   "contact_html",
   "primary_address_and_contact_detail_section",
   "column_break_44",
-  "investee_primary_address",
+  "lender_primary_address",
   "primary_address",
   "column_break_mglr",
-  "investee_primary_contact",
+  "lender_primary_contact",
   "mobile_no",
   "email_id"
  ],
@@ -35,10 +36,10 @@
    "reqd": 1
   },
   {
-   "fieldname": "investee_name",
+   "fieldname": "borrower_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Investee Name",
+   "label": "Borrower Name",
    "reqd": 1
   },
   {
@@ -49,23 +50,23 @@
    "reqd": 1
   },
   {
-   "fieldname": "investment_type",
+   "fieldname": "borrower_type",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Investment Type",
-   "options": "Subsidiary\nJoint Venture",
+   "label": "Borrower Type",
+   "options": "Shareholder\nSubsidiary\nJoint Venture",
    "reqd": 1
   },
   {
-   "fieldname": "section_break_dnfc",
+   "fieldname": "accounts_section",
    "fieldtype": "Section Break",
    "label": "Accounts"
   },
   {
-   "fieldname": "investee_accounts",
+   "fieldname": "borrower_accounts",
    "fieldtype": "Table",
-   "label": "Investee Accounts",
-   "options": "Investee Accounts",
+   "label": "Borrower Accounts",
+   "options": "Borrower Accounts",
    "reqd": 1
   },
   {
@@ -101,9 +102,9 @@
   },
   {
    "description": "Reselect, if the chosen address is edited after save",
-   "fieldname": "investee_primary_address",
+   "fieldname": "lender_primary_address",
    "fieldtype": "Link",
-   "label": "Investee Primary Address",
+   "label": "Lender Primary Address",
    "options": "Address"
   },
   {
@@ -118,9 +119,9 @@
   },
   {
    "description": "Reselect, if the chosen contact is edited after save",
-   "fieldname": "investee_primary_contact",
+   "fieldname": "lender_primary_contact",
    "fieldtype": "Link",
-   "label": "Investee Primary Contact",
+   "label": "Lender Primary Contact",
    "options": "Contact"
   },
   {
@@ -139,10 +140,10 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-10 03:07:25.941706",
+ "modified": "2025-09-10 03:27:35.216388",
  "modified_by": "lumzum@winbornholding.com",
  "module": "Investments",
- "name": "Investee",
+ "name": "Borrower",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "lumzum@winbornholding.com",
  "permissions": [
@@ -164,5 +165,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "investee_name"
+ "title_field": "borrower_name"
 }
