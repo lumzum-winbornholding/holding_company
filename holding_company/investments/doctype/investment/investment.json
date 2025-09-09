@@ -207,8 +207,13 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-09-09 03:10:00.626232",
+ "links": [
+  {
+   "link_doctype": "Investment Return",
+   "link_fieldname": "investment"
+  }
+ ],
+ "modified": "2025-09-10 00:59:12.350511",
  "modified_by": "lumzum@winbornholding.com",
  "module": "Investments",
  "name": "Investment",
