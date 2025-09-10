@@ -233,7 +233,7 @@
   "bold": 0,
   "collapsible": 0,
   "collapsible_depends_on": null,
-  "columns": 0,
+  "columns": 2,
   "default": null,
   "depends_on": null,
   "description": null,
@@ -282,7 +282,7 @@
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
-  "width": null
+  "width": "2"
  },
  {
   "allow_in_quick_entry": 0,
@@ -404,7 +404,7 @@
   "bold": 0,
   "collapsible": 0,
   "collapsible_depends_on": null,
-  "columns": 0,
+  "columns": 2,
   "default": null,
   "depends_on": null,
   "description": null,
@@ -453,7 +453,7 @@
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
-  "width": null
+  "width": "2"
  },
  {
   "allow_in_quick_entry": 0,
@@ -518,7 +518,7 @@
   "bold": 0,
   "collapsible": 0,
   "collapsible_depends_on": null,
-  "columns": 0,
+  "columns": 1,
   "default": null,
   "depends_on": null,
   "description": null,
@@ -567,7 +567,7 @@
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
-  "width": null
+  "width": "1"
  },
  {
   "allow_in_quick_entry": 0,
@@ -746,7 +746,7 @@
   "bold": 0,
   "collapsible": 0,
   "collapsible_depends_on": null,
-  "columns": 0,
+  "columns": 1,
   "default": null,
   "depends_on": null,
   "description": null,
@@ -795,7 +795,7 @@
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
-  "width": null
+  "width": "1"
  },
  {
   "allow_in_quick_entry": 0,
