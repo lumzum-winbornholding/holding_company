@@ -3,7 +3,7 @@
  "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2025-09-10 03:52:08.130253",
- "custom": 1,
+ "custom": 0,
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -204,7 +204,8 @@
   },
   {
    "fieldname": "section_break_nquw",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Loan Tracker"
   },
   {
    "allow_on_submit": 1,
@@ -242,7 +243,7 @@
    "link_fieldname": "lending"
   }
  ],
- "modified": "2025-09-10 04:06:29.787576",
+ "modified": "2025-09-10 18:14:03.199067",
  "modified_by": "lumzum@winbornholding.com",
  "module": "Investments",
  "name": "Lending",

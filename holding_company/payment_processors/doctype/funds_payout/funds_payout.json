@@ -4,6 +4,7 @@
  "app": "holding_company",
  "autoname": "naming_series:",
  "creation": "2025-09-08 17:44:00.198913",
+ "custom": 0,
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",

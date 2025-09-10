@@ -57,7 +57,14 @@ doctype_js = {
 	"Funds Hold": "payment_processors/doctype/funds_hold/funds_hold.js",
 	"Funds Payout": "payment_processors/doctype/funds_payout/funds_payout.js",
 	"Funds Callback": "payment_processors/doctype/funds_callback/funds_callback.js",
-	"Investee": "investments/doctype/investee/investee.js"
+	"Investee": "investments/doctype/investee/investee.js",
+	"Investment Application": "investments/doctype/investment_application/investment_application.js",
+	"Investment": "investments/doctype/investment/investment.js",
+	"Investment Return": "investments/doctype/investment_return/investment_return.js",
+	"Borrower": "investments/doctype/borrower/borrower.js",
+	"Lending Application": "investments/doctype/lending_application/lending_application.js",
+	"Lending": "investments/doctype/lending/lending.js",
+	"Lending Repayment": "investments/doctype/lending_repayment/lending_repayment.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}

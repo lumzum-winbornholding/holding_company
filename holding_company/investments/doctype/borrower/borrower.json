@@ -3,7 +3,7 @@
  "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2025-09-10 03:18:11.618703",
- "custom": 1,
+ "custom": 0,
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -102,9 +102,9 @@
   },
   {
    "description": "Reselect, if the chosen address is edited after save",
-   "fieldname": "lender_primary_address",
+   "fieldname": "borrower_primary_address",
    "fieldtype": "Link",
-   "label": "Lender Primary Address",
+   "label": "Borrower Primary Address",
    "options": "Address"
   },
   {
@@ -119,19 +119,19 @@
   },
   {
    "description": "Reselect, if the chosen contact is edited after save",
-   "fieldname": "lender_primary_contact",
+   "fieldname": "borrower_primary_contact",
    "fieldtype": "Link",
-   "label": "Lender Primary Contact",
+   "label": "Borrower Primary Contact",
    "options": "Contact"
   },
   {
-   "fetch_from": "investee_primary_contact.mobile_no",
+   "fetch_from": "borrower_primary_contact.mobile_no",
    "fieldname": "mobile_no",
    "fieldtype": "Read Only",
    "label": "Mobile No"
   },
   {
-   "fetch_from": "investee_primary_contact.email_id",
+   "fetch_from": "borrower_primary_contact.email_id",
    "fieldname": "email_id",
    "fieldtype": "Read Only",
    "label": "Email Id"
