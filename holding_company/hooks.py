@@ -54,19 +54,29 @@ fixtures = [
 
 # include js in doctype views
 doctype_js = {
+	# Payment Processors Module
 	"Funds Hold": "payment_processors/doctype/funds_hold/funds_hold.js",
 	"Funds Payout": "payment_processors/doctype/funds_payout/funds_payout.js",
 	"Funds Callback": "payment_processors/doctype/funds_callback/funds_callback.js",
+	
+	# Investments Module
 	"Investee": "investments/doctype/investee/investee.js",
+	"Investee Accounts": "investments/doctype/investee_accounts/investee_accounts.js",
 	"Investment Application": "investments/doctype/investment_application/investment_application.js",
 	"Investment": "investments/doctype/investment/investment.js",
 	"Investment Return": "investments/doctype/investment_return/investment_return.js",
 	"Borrower": "investments/doctype/borrower/borrower.js",
+	"Borrower Accounts": "investments/doctype/borrower_accounts/borrower_accounts.js",
 	"Lending Application": "investments/doctype/lending_application/lending_application.js",
 	"Lending": "investments/doctype/lending/lending.js",
 	"Lending Repayment": "investments/doctype/lending_repayment/lending_repayment.js",
+	
+	# Liabilities Module
+	"Company Loan Application": "liabilities/doctype/company_loan_application/company_loan_application.js",
 	"Company Loan": "liabilities/doctype/company_loan/company_loan.js",
-	"Company Loan Repayment": "liabilities/doctype/company_loan_repayment/company_loan_repayment.js"
+	"Company Loan Repayment": "liabilities/doctype/company_loan_repayment/company_loan_repayment.js",
+	"Lender": "liabilities/doctype/lender/lender.js",
+	"Lender Accounts": "liabilities/doctype/lender_accounts/lender_accounts.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
