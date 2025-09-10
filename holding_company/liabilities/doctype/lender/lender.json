@@ -125,13 +125,13 @@
    "options": "Contact"
   },
   {
-   "fetch_from": "investee_primary_contact.mobile_no",
+   "fetch_from": "lender_primary_contact.mobile_no",
    "fieldname": "mobile_no",
    "fieldtype": "Read Only",
    "label": "Mobile No"
   },
   {
-   "fetch_from": "investee_primary_contact.email_id",
+   "fetch_from": "lender_primary_contact.email_id",
    "fieldname": "email_id",
    "fieldtype": "Read Only",
    "label": "Email Id"
