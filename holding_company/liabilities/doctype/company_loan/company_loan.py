@@ -17,6 +17,10 @@ class CompanyLoan(Document):
 	def on_cancel(self):
 		self.cancel_journal_entry()
 
+	def on_amend(self):
+		"""Actions to perform when document is amended"""
+		self.journal_entry = None
+
 	def calculate_outstanding_balance(self):
 		"""Calculate outstanding balance and update tracking fields"""
 		if self.loan_amount:

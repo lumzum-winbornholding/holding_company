@@ -64,7 +64,9 @@ doctype_js = {
 	"Borrower": "investments/doctype/borrower/borrower.js",
 	"Lending Application": "investments/doctype/lending_application/lending_application.js",
 	"Lending": "investments/doctype/lending/lending.js",
-	"Lending Repayment": "investments/doctype/lending_repayment/lending_repayment.js"
+	"Lending Repayment": "investments/doctype/lending_repayment/lending_repayment.js",
+	"Company Loan": "liabilities/doctype/company_loan/company_loan.js",
+	"Company Loan Repayment": "liabilities/doctype/company_loan_repayment/company_loan_repayment.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
