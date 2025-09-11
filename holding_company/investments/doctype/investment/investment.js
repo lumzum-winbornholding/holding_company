@@ -1,14 +1,16 @@
 frappe.ui.form.on('Investment', {
 	refresh: function(frm) {
-		// Disable creation of new records manually
-		frm.disable_save();
-		
+		// Only disable save for manual creation (new records without investment_application)
 		if (frm.doc.__islocal && !frm.doc.investment_application) {
+			frm.disable_save();
 			frappe.msgprint({
 				title: __('Manual Creation Not Allowed'),
 				message: __('Investment records can only be created from Investment Application. Please use the "Create Investment" button in Investment Application form.'),
 				indicator: 'red'
 			});
+		} else {
+			// Enable save for records created from Investment Application
+			frm.enable_save();
 		}
 	},
 	
@@ -32,6 +34,8 @@ frappe.listview_settings['Investment'] = {
 	get_indicator: function(doc) {
 		if (doc.custom_status === "Recovered") {
 			return [__("Recovered"), "green", "custom_status,=,Recovered"];
+		} else if (doc.custom_status === "Partially Recovered") {
+			return [__("Partially Recovered"), "blue", "custom_status,=,Partially Recovered"];
 		} else if (doc.custom_status === "Unrecovered") {
 			return [__("Unrecovered"), "red", "custom_status,=,Unrecovered"];
 		}
@@ -90,6 +94,9 @@ function fetch_investment_application_data(frm) {
 				if (!frm.doc.share_rate || flt(frm.doc.share_rate) === 0) {
 					calculate_share_rate(frm);
 				}
+				
+				// Enable save button after data is fetched
+				frm.enable_save();
 				
 				frappe.show_alert(__('Data fetched from Investment Application'), 3);
 			}

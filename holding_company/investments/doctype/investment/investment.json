@@ -237,7 +237,7 @@
    "fieldname": "custom_status",
    "fieldtype": "Select",
    "label": "Investment Status",
-   "options": "Unrecovered\nRecovered",
+   "options": "Unrecovered\nPartially Recovered\nRecovered",
    "read_only": 1
   }
  ],

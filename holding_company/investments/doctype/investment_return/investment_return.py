@@ -51,9 +51,7 @@ class InvestmentReturn(Document):
 			# Line 2: Credit the Dividend Income Account (income recognition)
 			je.append("accounts", {
 				"account": self.dividend_income_account,
-				"credit_in_account_currency": self.dividend_amount,
-				"reference_type": "Investment",
-				"reference_name": self.investment
+				"credit_in_account_currency": self.dividend_amount
 			})
 			
 			# Save and submit the Journal Entry
@@ -93,10 +91,11 @@ class InvestmentReturn(Document):
 				)
 	
 	def update_investment_roi(self, reverse=False):
-		"""Update the Investment's ROI and dividend_paid fields"""
+		"""Update the Investment's ROI, dividend_paid fields and status"""
 		try:
 			# Get the Investment document
 			investment_doc = frappe.get_doc("Investment", self.investment)
+			investment_amount = flt(investment_doc.investment_amount)
 			
 			# Calculate the dividend amount (positive for submit, negative for cancel)
 			dividend_amount = flt(self.dividend_amount)
@@ -107,15 +106,20 @@ class InvestmentReturn(Document):
 			current_dividend_paid = flt(investment_doc.dividend_paid)
 			new_dividend_paid = current_dividend_paid + dividend_amount
 			
-			# Update ROI (starts negative, becomes positive with dividends)
-			current_roi = flt(investment_doc.roi)
-			new_roi = current_roi + dividend_amount
+			# Ensure dividend_paid doesn't go negative on cancellation
+			if new_dividend_paid < 0:
+				new_dividend_paid = 0
 			
-			# Determine investment status based on ROI
-			if new_roi >= 0:
+			# Calculate ROI = Dividend Paid - Investment Amount
+			new_roi = new_dividend_paid - investment_amount
+			
+			# Determine investment status based on dividend recovery
+			if new_dividend_paid == 0:
+				investment_status = "Unrecovered"
+			elif new_dividend_paid >= investment_amount:
 				investment_status = "Recovered"
 			else:
-				investment_status = "Unrecovered"
+				investment_status = "Partially Recovered"
 			
 			# Update the Investment document
 			frappe.db.set_value("Investment", self.investment, {
@@ -126,7 +130,7 @@ class InvestmentReturn(Document):
 			
 			# Show confirmation message
 			action = "updated" if not reverse else "reversed"
-			frappe.msgprint(f"Investment tracking {action}. New ROI: {new_roi}, Status: {investment_status}")
+			frappe.msgprint(f"Investment tracking {action}. Dividend Paid: {new_dividend_paid}, ROI: {new_roi}, Status: {investment_status}")
 			
 		except Exception as e:
 			frappe.log_error(

@@ -50,9 +50,9 @@ function fetch_investee_accounts(frm) {
 			name: frm.doc.investee
 		},
 		callback: function(r) {
-			if (r.message && r.message.accounts) {
+			if (r.message && r.message.investee_accounts) {
 				// Find the account row that matches the company
-				const company_accounts = r.message.accounts.find(
+				const company_accounts = r.message.investee_accounts.find(
 					account => account.company === frm.doc.company
 				);
 				

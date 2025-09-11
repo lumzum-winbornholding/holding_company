@@ -104,6 +104,7 @@
    "fieldname": "investee_primary_address",
    "fieldtype": "Link",
    "label": "Investee Primary Address",
+   "link_filters": "[[\"Dynamic Link\",\"link_doctype\",\"=\",\"Investee\"],[\"Dynamic Link\",\"link_name\",\"=\",\"eval:doc.name\"]]",
    "options": "Address"
   },
   {
@@ -121,6 +122,7 @@
    "fieldname": "investee_primary_contact",
    "fieldtype": "Link",
    "label": "Investee Primary Contact",
+   "link_filters": "[[\"Dynamic Link\",\"link_doctype\",\"=\",\"Investee\"],[\"Dynamic Link\",\"link_name\",\"=\",\"eval:doc.name\"]]",
    "options": "Contact"
   },
   {

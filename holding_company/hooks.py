@@ -28,7 +28,8 @@ fixtures = [
 	"Property Setter", 
 	"Print Format",
 	"Document Naming Settings",
-	"Workspace"
+	"Workspace",
+	"List View Settings"
 ]
 
 # Includes in <head>
