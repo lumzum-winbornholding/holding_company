@@ -4,6 +4,22 @@ frappe.ui.form.on('Lending Repayment', {
 		if (frm.doc.__islocal) {
 			frm.set_value('journal_entry', '');
 		}
+		
+		// Only disable save if there's no lending linked
+		if (frm.doc.__islocal && !frm.doc.lending) {
+			frm.disable_save();
+			frappe.msgprint({
+				title: __('Manual Creation Not Allowed'),
+				message: __('Lending Repayment records can only be created from Lending. Please use the "Create Repayment" button in Lending form.'),
+				indicator: 'red'
+			});
+		}
+	},
+	
+	lending: function(frm) {
+		if (frm.doc.lending) {
+			fetch_lending_data(frm);
+		}
 	},
 	
 	repayment_amount: function(frm) {

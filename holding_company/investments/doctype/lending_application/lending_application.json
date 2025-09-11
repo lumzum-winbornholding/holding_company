@@ -15,7 +15,7 @@
   "borrower",
   "tax_id",
   "column_break_gqhr",
-  "date",
+  "posting_date",
   "column_break_inxg",
   "company",
   "custom_company_abbr",
@@ -82,7 +82,7 @@
   },
   {
    "default": "Today",
-   "fieldname": "date",
+   "fieldname": "posting_date",
    "fieldtype": "Date",
    "label": "Date",
    "reqd": 1,

@@ -1,9 +1,8 @@
 frappe.ui.form.on('Lending', {
 	refresh: function(frm) {
-		// Disable creation of new records manually
-		frm.disable_save();
-		
+		// Only disable save if there's no lending application linked
 		if (frm.doc.__islocal && !frm.doc.lending_application) {
+			frm.disable_save();
 			frappe.msgprint({
 				title: __('Manual Creation Not Allowed'),
 				message: __('Lending records can only be created from Lending Application. Please use the "Create Lending" button in Lending Application form.'),
@@ -53,7 +52,6 @@ function fetch_lending_application_data(frm) {
 					'purpose': 'purpose',
 					'borrower': 'borrower',
 					'company': 'company',
-					'date': 'date',
 					'loan_account': 'loan_account',
 					'interest_income_account': 'interest_income_account',
 					'bank_account': 'bank_account'

@@ -1,75 +1,20 @@
 frappe.ui.form.on('Company Loan', {
 	refresh: function(frm) {
-		// Prevent manual creation - must be created from Company Loan Application
+		// Only disable save if there's no company loan application linked
 		if (frm.doc.__islocal && !frm.doc.company_loan_application) {
-			frappe.msgprint(__('Company Loan cannot be created manually. Please create through Company Loan Application.'));
-			frappe.set_route('List', 'Company Loan Application');
-			return;
+			frm.disable_save();
+			frappe.msgprint({
+				title: __('Manual Creation Not Allowed'),
+				message: __('Company Loan records can only be created from Company Loan Application. Please use the "Create Loan" button in Company Loan Application form.'),
+				indicator: 'red'
+			});
 		}
 		
-		// Auto-refresh after submit to update calculated fields
-		if (frm.doc.docstatus === 1) {
-			frm.trigger('calculate_outstanding');
-		}
 	},
 
 	company_loan_application: function(frm) {
 		if (frm.doc.company_loan_application) {
-			// Fetch data from Company Loan Application
-			frappe.call({
-				method: 'frappe.client.get',
-				args: {
-					doctype: 'Company Loan Application',
-					name: frm.doc.company_loan_application
-				},
-				callback: function(r) {
-					if (r.message) {
-						const app = r.message;
-						
-						// Map fields from Company Loan Application
-						frm.set_value('loan_amount', app.loan_amount);
-						frm.set_value('interest_rate', app.interest_rate);
-						frm.set_value('repayment_frequency', app.repayment_frequency);
-						frm.set_value('purpose', app.purpose);
-						
-						// Copy other essential fields
-						frm.set_value('lender', app.lender);
-						frm.set_value('company', app.company);
-						frm.set_value('liability_account', app.liability_account);
-						frm.set_value('interest_expense_account', app.interest_expense_account);
-						frm.set_value('bank_account', app.bank_account);
-						
-						frappe.show_alert(__('Data fetched from Company Loan Application'), 3);
-					}
-				}
-			});
-		}
-	},
-
-	loan_amount: function(frm) {
-		frm.trigger('calculate_outstanding');
-	},
-
-	total_repaid: function(frm) {
-		frm.trigger('calculate_outstanding');
-	},
-
-	calculate_outstanding: function(frm) {
-		if (frm.doc.loan_amount && frm.doc.total_repaid !== undefined) {
-			const outstanding = frm.doc.loan_amount - (frm.doc.total_repaid || 0);
-			frm.set_value('outstanding_balance', outstanding);
-			
-			// Update loan status based on repayment
-			let status = 'Unpaid';
-			if (frm.doc.total_repaid === 0) {
-				status = 'Unpaid';
-			} else if (frm.doc.total_repaid > 0 && outstanding > 0) {
-				status = 'Partially Repaid';
-			} else if (outstanding <= 0) {
-				status = 'Repaid';
-			}
-			
-			frm.set_value('custom_status', status);
+			fetch_company_loan_application_data(frm);
 		}
 	}
 });
@@ -86,3 +31,45 @@ frappe.listview_settings['Company Loan'] = {
 		}
 	}
 };
+
+function fetch_company_loan_application_data(frm) {
+	// Fetch data from Company Loan Application
+	frappe.call({
+		method: 'frappe.client.get',
+		args: {
+			doctype: 'Company Loan Application',
+			name: frm.doc.company_loan_application
+		},
+		callback: function(r) {
+			if (r.message) {
+				const cla_doc = r.message;
+				
+				// Map fields from Company Loan Application to Company Loan
+				const field_mappings = {
+					'loan_amount': 'loan_amount',
+					'interest_rate': 'interest_rate',
+					'repayment_frequency': 'repayment_frequency',
+					'purpose': 'purpose',
+					'lender': 'lender',
+					'company': 'company',
+					'liability_account': 'liability_account',
+					'interest_expense_account': 'interest_expense_account',
+					'bank_account': 'bank_account'
+				};
+				
+				// Set values for each mapped field
+				Object.keys(field_mappings).forEach(function(source_field) {
+					const target_field = field_mappings[source_field];
+					if (cla_doc[source_field] !== undefined && cla_doc[source_field] !== null) {
+						frm.set_value(target_field, cla_doc[source_field]);
+					}
+				});
+				
+				frappe.show_alert(__('Data fetched from Company Loan Application'), 3);
+			}
+		},
+		error: function(err) {
+			frappe.msgprint(__('Error fetching Company Loan Application data: {0}', [err.message]));
+		}
+	});
+}

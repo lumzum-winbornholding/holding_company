@@ -74,7 +74,6 @@ function fetch_investment_application_data(frm) {
 					'share_rate': 'share_rate',
 					'investee': 'investee',
 					'company': 'company',
-					'date': 'date',
 					'investment_account': 'investment_account',
 					'dividend_income_account': 'dividend_income_account',
 					'bank_account': 'bank_account',

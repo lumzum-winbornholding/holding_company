@@ -20,10 +20,10 @@
   "contact_html",
   "primary_address_and_contact_detail_section",
   "column_break_44",
-  "lender_primary_address",
+  "borrower_primary_address",
   "primary_address",
   "column_break_mglr",
-  "lender_primary_contact",
+  "borrower_primary_contact",
   "mobile_no",
   "email_id"
  ],
@@ -105,6 +105,7 @@
    "fieldname": "borrower_primary_address",
    "fieldtype": "Link",
    "label": "Borrower Primary Address",
+   "link_filters": "[[\"Dynamic Link\",\"link_doctype\",\"=\",\"Borrower\"],[\"Dynamic Link\",\"link_name\",\"=\",\"eval:doc.name\"]]",
    "options": "Address"
   },
   {
@@ -122,6 +123,7 @@
    "fieldname": "borrower_primary_contact",
    "fieldtype": "Link",
    "label": "Borrower Primary Contact",
+   "link_filters": "[[\"Dynamic Link\",\"link_doctype\",\"=\",\"Borrower\"],[\"Dynamic Link\",\"link_name\",\"=\",\"eval:doc.name\"]]",
    "options": "Contact"
   },
   {
@@ -140,7 +142,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-10 03:27:35.216388",
+ "modified": "2025-09-11 18:47:32.935305",
  "modified_by": "lumzum@winbornholding.com",
  "module": "Investments",
  "name": "Borrower",

@@ -1,8 +1,18 @@
 frappe.ui.form.on('Company Loan Repayment', {
 	refresh: function(frm) {
-		// Clear journal_entry field when creating new document
-		if (frm.doc.__islocal && frm.doc.journal_entry) {
+		// Clear journal_entry field (it will be auto-populated when created from Company Loan)
+		if (frm.doc.__islocal) {
 			frm.set_value('journal_entry', '');
+		}
+		
+		// Only disable save if there's no company loan linked
+		if (frm.doc.__islocal && !frm.doc.company_loan) {
+			frm.disable_save();
+			frappe.msgprint({
+				title: __('Manual Creation Not Allowed'),
+				message: __('Company Loan Repayment records can only be created from Company Loan. Please use the "Create Repayment" button in Company Loan form.'),
+				indicator: 'red'
+			});
 		}
 		
 		// Auto-calculate net amount when form loads
@@ -53,10 +63,7 @@ frappe.ui.form.on('Company Loan Repayment', {
 	},
 
 	calculate_net_amount: function(frm) {
-		if (frm.doc.repayment_amount !== undefined && frm.doc.repayment_interest !== undefined) {
-			const net_amount = (frm.doc.repayment_amount || 0) + (frm.doc.repayment_interest || 0);
-			frm.set_value('net_amount', net_amount);
-		}
+		calculate_net_amount(frm);
 	},
 
 	validate: function(frm) {
@@ -85,3 +92,11 @@ frappe.ui.form.on('Company Loan Repayment', {
 		}
 	}
 });
+
+function calculate_net_amount(frm) {
+	const repayment_amount = flt(frm.doc.repayment_amount);
+	const repayment_interest = flt(frm.doc.repayment_interest);
+	
+	const net_amount = repayment_amount + repayment_interest;
+	frm.set_value('net_amount', net_amount);
+}

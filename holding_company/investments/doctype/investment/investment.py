@@ -31,11 +31,11 @@ class Investment(Document):
 			je = frappe.new_doc("Journal Entry")
 			
 			# Populate the header fields
-			je.posting_date = self.date
+			je.posting_date = self.posting_date
 			je.company = self.company
 			je.voucher_type = "Bank Entry"
 			je.cheque_no = self.name
-			je.cheque_date = self.date
+			je.cheque_date = self.posting_date
 			je.user_remark = f"Investment in {investee_full_name}"
 			
 			# Add the accounting lines

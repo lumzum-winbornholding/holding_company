@@ -14,7 +14,7 @@ class LendingRepayment(Document):
 		"""Cancel journal entry and reverse lending tracking when Lending Repayment is cancelled"""
 		if self.lending and self.repayment_amount:
 			self.cancel_journal_entry()
-			self.update_lending_tracking()
+			self.update_lending_tracking(reverse=True)
 	
 	def on_amend(self):
 		"""Clear journal entry field when document is amended"""
@@ -35,11 +35,11 @@ class LendingRepayment(Document):
 			gl_entry = frappe.new_doc("Journal Entry")
 			
 			# Populate the header fields
-			gl_entry.posting_date = self.date
+			gl_entry.posting_date = self.posting_date
 			gl_entry.company = self.company
 			gl_entry.voucher_type = "Bank Entry"
 			gl_entry.cheque_no = self.name
-			gl_entry.cheque_date = self.date
+			gl_entry.cheque_date = self.posting_date
 			gl_entry.user_remark = f"Repayment for Lending {lending_doc.name}"
 			
 			# Add the accounting lines
@@ -47,8 +47,6 @@ class LendingRepayment(Document):
 			gl_entry.append("accounts", {
 				"account": self.bank_account,
 				"debit_in_account_currency": self.net_amount,
-				"party_type": "Borrower",
-				"party": self.borrower
 			})
 			
 			# Line 2: Credit the Loan Account (principal repayment)
@@ -103,15 +101,56 @@ class LendingRepayment(Document):
 					title="Lending Repayment Journal Entry Cancellation Error"
 				)
 	
-	def update_lending_tracking(self):
-		"""Update the parent Lending document's tracking fields"""
-		if self.lending:
-			try:
-				# Call the Lending doctype's update function
-				frappe.get_doc("Lending", self.lending).update_loan_tracking()
-				
-			except Exception as e:
-				frappe.log_error(
-					message=f"Could not update Lending tracking for Lending Repayment {self.name}: {e}",
-					title="Lending Tracking Update Error"
-				)
+	def update_lending_tracking(self, reverse=False):
+		"""Update the Lending's total_repaid, outstanding_balance and status directly"""
+		try:
+			# Get the Lending document
+			lending_doc = frappe.get_doc("Lending", self.lending)
+			loan_amount = flt(lending_doc.loan_amount)
+			
+			# Calculate the repayment amount (positive for submit, negative for cancel)
+			repayment_amount = flt(self.repayment_amount)
+			if reverse:
+				repayment_amount = -repayment_amount
+			
+			# Update total_repaid (total repayments received)
+			current_total_repaid = flt(lending_doc.total_repaid)
+			new_total_repaid = current_total_repaid + repayment_amount
+			
+			# Ensure total_repaid doesn't go negative on cancellation
+			if new_total_repaid < 0:
+				new_total_repaid = 0
+			
+			# Calculate outstanding_balance = Loan Amount - Total Repaid
+			new_outstanding_balance = loan_amount - new_total_repaid
+			
+			# Ensure outstanding balance doesn't go negative
+			if new_outstanding_balance < 0:
+				new_outstanding_balance = 0
+			
+			# Determine loan status based on repayment
+			if new_total_repaid == 0:
+				loan_status = "Unpaid"
+			elif new_outstanding_balance == 0 or new_total_repaid >= loan_amount:
+				loan_status = "Repaid"
+			else:
+				loan_status = "Partially Repaid"
+			
+			# Update the Lending document
+			frappe.db.set_value("Lending", self.lending, {
+				"total_repaid": new_total_repaid,
+				"outstanding_balance": new_outstanding_balance,
+				"custom_status": loan_status
+			})
+			
+			# Show confirmation message
+			action = "updated" if not reverse else "reversed"
+			frappe.msgprint(f"Lending tracking {action}. Total Repaid: {new_total_repaid}, Outstanding: {new_outstanding_balance}, Status: {loan_status}")
+			
+		except Exception as e:
+			frappe.log_error(
+				message=f"Could not update Lending tracking for Lending Repayment {self.name}: {e}",
+				title="Lending Tracking Update Error"
+			)
+			if not reverse:  # Only throw error on submit, not cancel
+				frappe.throw(f"Error updating Lending tracking: {e}")

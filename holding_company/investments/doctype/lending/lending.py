@@ -31,11 +31,11 @@ class Lending(Document):
 			gl_entry = frappe.new_doc("Journal Entry")
 			
 			# Populate the header fields
-			gl_entry.posting_date = self.date
+			gl_entry.posting_date = self.posting_date
 			gl_entry.company = self.company
 			gl_entry.voucher_type = "Bank Entry"
 			gl_entry.cheque_no = self.name
-			gl_entry.cheque_date = self.date
+			gl_entry.cheque_date = self.posting_date
 			gl_entry.user_remark = f"Loan disbursement for {self.name} to {borrower_full_name}"
 			
 			# Add the accounting lines
@@ -97,48 +97,3 @@ class Lending(Document):
 			"outstanding_balance": self.loan_amount,
 			"custom_status": "Unpaid"
 		})
-	
-	def update_loan_tracking(self):
-		"""Update loan tracking fields based on repayments"""
-		# Calculate total repaid from all Lending Repayment records
-		total_repaid = frappe.db.sql("""
-			SELECT COALESCE(SUM(repayment_amount), 0)
-			FROM `tabLending Repayment`
-			WHERE lending = %s AND docstatus = 1
-		""", self.name)[0][0]
-		
-		total_repaid = flt(total_repaid)
-		loan_amount = flt(self.loan_amount)
-		outstanding_balance = loan_amount - total_repaid
-		
-		# Determine status based on repayment
-		if total_repaid == 0:
-			status = "Unpaid"
-		elif outstanding_balance <= 0 or total_repaid >= loan_amount:
-			status = "Repaid"
-			outstanding_balance = 0  # Ensure it doesn't go negative
-		else:
-			status = "Partially Repaid"
-		
-		# Update the fields
-		frappe.db.set_value("Lending", self.name, {
-			"total_repaid": total_repaid,
-			"outstanding_balance": outstanding_balance,
-			"custom_status": status
-		})
-		
-		frappe.msgprint(f"Loan tracking updated. Total Repaid: {total_repaid}, Outstanding: {outstanding_balance}, Status: {status}")
-
-
-# Function to be called from Lending Repayment to update loan tracking
-@frappe.whitelist()
-def update_lending_tracking(lending_name):
-	"""Update lending tracking when repayment is made"""
-	try:
-		lending_doc = frappe.get_doc("Lending", lending_name)
-		lending_doc.update_loan_tracking()
-	except Exception as e:
-		frappe.log_error(
-			message=f"Could not update loan tracking for Lending {lending_name}: {e}",
-			title="Loan Tracking Update Error"
-		)
