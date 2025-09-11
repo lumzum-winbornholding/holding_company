@@ -216,6 +216,7 @@
    "reqd": 1
   },
   {
+   "bold": 1,
    "fieldname": "net_amount",
    "fieldtype": "Currency",
    "label": "Net Amount",
