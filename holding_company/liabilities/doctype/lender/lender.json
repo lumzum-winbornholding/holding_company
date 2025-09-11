@@ -105,6 +105,7 @@
    "fieldname": "lender_primary_address",
    "fieldtype": "Link",
    "label": "Lender Primary Address",
+   "link_filters": "[[\"Dynamic Link\",\"link_doctype\",\"=\",\"Lender\"],[\"Dynamic Link\",\"link_name\",\"=\",\"eval:doc.name\"]]",
    "options": "Address"
   },
   {
@@ -122,6 +123,7 @@
    "fieldname": "lender_primary_contact",
    "fieldtype": "Link",
    "label": "Lender Primary Contact",
+   "link_filters": "[[\"Dynamic Link\",\"link_doctype\",\"=\",\"Lender\"],[\"Dynamic Link\",\"link_name\",\"=\",\"eval:doc.name\"]]",
    "options": "Contact"
   },
   {

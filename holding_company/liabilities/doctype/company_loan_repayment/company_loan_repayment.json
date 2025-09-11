@@ -4,6 +4,7 @@
  "autoname": "naming_series:",
  "creation": "2025-09-10 02:52:48.348205",
  "custom": 0,
+ "default_print_format": "WBH-CLN-RPM-1",
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -156,7 +157,6 @@
    "label": "Repayment"
   },
   {
-   "bold": 1,
    "fieldname": "repayment_amount",
    "fieldtype": "Currency",
    "label": "Repayment Amount",
@@ -173,6 +173,7 @@
    "reqd": 1
   },
   {
+   "bold": 1,
    "fieldname": "net_amount",
    "fieldtype": "Currency",
    "label": "Net Amount",

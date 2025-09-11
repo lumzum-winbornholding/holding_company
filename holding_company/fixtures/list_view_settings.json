@@ -152,5 +152,61 @@
   "modified": "2025-09-12 00:42:28.584376",
   "name": "Lending Repayment",
   "total_fields": "5"
+ },
+ {
+  "allow_edit": 0,
+  "disable_auto_refresh": 0,
+  "disable_automatic_recency_filters": 0,
+  "disable_comment_count": 0,
+  "disable_count": 0,
+  "disable_sidebar_stats": 0,
+  "docstatus": 0,
+  "doctype": "List View Settings",
+  "fields": "[{\"label\":\"Lender Name\",\"fieldname\":\"lender_name\"},{\"label\":\"Lender Type\",\"fieldname\":\"lender_type\"}]",
+  "modified": "2025-09-12 03:08:18.303267",
+  "name": "Lender",
+  "total_fields": "4"
+ },
+ {
+  "allow_edit": 0,
+  "disable_auto_refresh": 0,
+  "disable_automatic_recency_filters": 0,
+  "disable_comment_count": 0,
+  "disable_count": 0,
+  "disable_sidebar_stats": 0,
+  "docstatus": 0,
+  "doctype": "List View Settings",
+  "fields": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"type\":\"Status\",\"label\":\"Status\",\"fieldname\":\"status_field\"},{\"label\":\"Lender\",\"fieldname\":\"lender\"},{\"label\":\"Loan Amount\",\"fieldname\":\"loan_amount\"}]",
+  "modified": "2025-09-12 03:11:06.005105",
+  "name": "Company Loan Application",
+  "total_fields": "6"
+ },
+ {
+  "allow_edit": 0,
+  "disable_auto_refresh": 0,
+  "disable_automatic_recency_filters": 0,
+  "disable_comment_count": 0,
+  "disable_count": 0,
+  "disable_sidebar_stats": 0,
+  "docstatus": 0,
+  "doctype": "List View Settings",
+  "fields": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"type\":\"Status\",\"label\":\"Status\",\"fieldname\":\"status_field\"},{\"label\":\"Lender\",\"fieldname\":\"lender\"},{\"label\":\"Loan Status\",\"fieldname\":\"custom_status\"},{\"label\":\"Loan Amount\",\"fieldname\":\"loan_amount\"}]",
+  "modified": "2025-09-12 03:11:23.374307",
+  "name": "Company Loan",
+  "total_fields": "7"
+ },
+ {
+  "allow_edit": 0,
+  "disable_auto_refresh": 0,
+  "disable_automatic_recency_filters": 0,
+  "disable_comment_count": 0,
+  "disable_count": 0,
+  "disable_sidebar_stats": 0,
+  "docstatus": 0,
+  "doctype": "List View Settings",
+  "fields": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"type\":\"Status\",\"label\":\"Status\",\"fieldname\":\"status_field\"},{\"label\":\"Lender\",\"fieldname\":\"lender\"},{\"label\":\"Repayment Amount\",\"fieldname\":\"repayment_amount\"}]",
+  "modified": "2025-09-12 03:13:20.465138",
+  "name": "Company Loan Repayment",
+  "total_fields": "6"
  }
 ]
