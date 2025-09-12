@@ -8,18 +8,17 @@ app_license = "mit"
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["erpnext"]
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "holding_company",
-# 		"logo": "/assets/holding_company/logo.png",
-# 		"title": "Holding Company",
-# 		"route": "/holding_company",
-# 		"has_permission": "holding_company.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+ 	{
+ 		"name": "holding_company",
+ 		"logo": "/assets/holding_company/images/wbh_logo_app_icon.png",
+ 		"title": "Holding Company",
+ 		"route": "/holding_company",
+ 	}
+ ]
 
 # Fixtures
 # --------
