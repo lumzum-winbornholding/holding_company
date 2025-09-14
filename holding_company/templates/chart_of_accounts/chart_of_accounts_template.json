@@ -86,27 +86,33 @@
           "is_group": 1,
           "VAT (Assets)": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": 7.000000000
           },
           "WHT 1 (Assets)": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -1.000000000
           },
           "WHT 2 (Assets)": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -2.000000000
           },
           "WHT 3 (Assets)": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -3.000000000
           },
           "WHT 5 (Assets)": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -5.000000000
           },
           "WHT 10 (Assets)": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -10.000000000
           }
         },
         "Loans and Advances (Assets)": {
@@ -276,27 +282,33 @@
           },
           "VAT": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": 7.000000000
           },
           "WHT 1": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -1.000000000
           },
           "WHT 2": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -2.000000000
           },
           "WHT 3": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -3.000000000
           },
           "WHT 5": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -5.000000000
           },
           "WHT 10": {
             "account_type": "Tax",
-            "is_group": 0
+            "is_group": 0,
+            "tax_rate": -10.000000000
           }
         },
         "Loans (Liabilities)": {
