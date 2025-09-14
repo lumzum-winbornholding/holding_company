@@ -14,7 +14,7 @@ required_apps = ["erpnext"]
 add_to_apps_screen = [
  	{
  		"name": "holding_company",
- 		"logo": "/assets/holding_company/images/wbh_logo_app_icon.png",
+ 		"logo": "/assets/holding_company/images/wbh_logo_app_icon_white_512x512.png",
  		"title": "Holding Company",
  		"route": "/holding_company",
  	}
