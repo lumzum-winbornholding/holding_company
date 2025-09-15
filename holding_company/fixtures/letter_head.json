@@ -1,0 +1,25 @@
+[
+ {
+  "align": "Left",
+  "content": "<!--Letter Head PDF Background - Dynamic Logo Selection-->\n\n{% set company_logos = {\n    \"WBH\": \"wbh_logo.png\",\n    \"KMC\": \"kobmicro_oo.png\",\n    \"ABC\": \"abc_company_logo.png\",\n    \"XYZ\": \"xyz_corp_logo.png\",\n    \"DEF\": \"def_industries_logo.png\",\n    \"GHI\": \"ghi_solutions_logo.png\"\n} %}\n\n{% set selected_logo = company_logos.get(doc.custom_company_abbr, \"default_logo.png\") %}\n\n<div style='position: absolute; \n    top: 0; \n    left: 0; \n    width: 100%; \n    height: 100%; \n    z-index: -1; \n    \n    /* --- Background Image Properties --- */\n    background-image: url(\"/files/{{ selected_logo }}\");\n    background-repeat: no-repeat;\n    background-position: center 55%; /* Positions the logo horizontally centered and 55% from the top */\n    background-size: 600px; /* Adjust size here */\n    opacity: 0.07;'>\n</div>",
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Letter Head",
+  "footer": null,
+  "footer_align": "Left",
+  "footer_image": null,
+  "footer_image_height": 0.0,
+  "footer_image_width": 0.0,
+  "footer_script": null,
+  "footer_source": "HTML",
+  "header_script": null,
+  "image": null,
+  "image_height": 0.0,
+  "image_width": 0.0,
+  "is_default": 0,
+  "letter_head_name": "Doc Print Watermark",
+  "modified": "2025-09-15 22:50:54.224521",
+  "name": "Doc Print Watermark",
+  "source": "HTML"
+ }
+]

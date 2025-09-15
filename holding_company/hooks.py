@@ -24,8 +24,10 @@ add_to_apps_screen = [
 # --------
 fixtures = [
 	"Custom Field",
-	"Property Setter", 
+	"Property Setter",
 	"Print Format",
+	"Print Settings",
+	"Letter Head",
 	"Document Naming Settings",
 	"Workspace",
 	"List View Settings"
