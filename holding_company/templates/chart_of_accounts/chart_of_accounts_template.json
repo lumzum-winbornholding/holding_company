@@ -33,7 +33,23 @@
         "Payment Processor Accounts": {
           "account_number": "1250",
           "account_type": "",
-          "is_group": 1
+          "is_group": 1,
+          "ChillPay Account": {
+            "account_type": "Bank",
+            "is_group": 0
+          },
+          "ChillPay Hold Account": {
+            "account_type": "Bank",
+            "is_group": 0
+          },
+          "Dynamic Payment Account": {
+            "account_type": "Bank",
+            "is_group": 0
+          },
+          "Dynamic Payment Hold Account": {
+            "account_type": "Bank",
+            "is_group": 0
+          }
         },
         "Accounts Receivable": {
           "account_number": "1300",
@@ -218,7 +234,47 @@
         "Child Companies Investments": {
           "account_number": "1800-1830",
           "account_type": "",
-          "is_group": 1
+          "is_group": 1,
+          "WBH Investments": {
+            "account_number": "1801",
+            "account_type": "",
+            "is_group": 0
+          },
+          "WBL Investments": {
+            "account_number": "1802",
+            "account_type": "",
+            "is_group": 0
+          },
+          "WBC Investments": {
+            "account_number": "1803",
+            "account_type": "",
+            "is_group": 0
+          },
+          "DGE Investments": {
+            "account_number": "1805",
+            "account_type": "",
+            "is_group": 0
+          },
+          "VRT Investments": {
+            "account_number": "1807",
+            "account_type": "",
+            "is_group": 0
+          },
+          "YUM Investments": {
+            "account_number": "1808",
+            "account_type": "",
+            "is_group": 0
+          },
+          "KMC Investments": {
+            "account_number": "1811",
+            "account_type": "",
+            "is_group": 0
+          },
+          "QTC Investments": {
+            "account_number": "1821",
+            "account_type": "",
+            "is_group": 0
+          }
         }
       },
       "Temporary Accounts": {
@@ -412,7 +468,47 @@
       "Dividend Income": {
         "account_number": "4300",
         "account_type": "",
-        "is_group": 1
+        "is_group": 1,
+        "WBH Dividends": {
+          "account_number": "4301",
+          "account_type": "Indirect Income",
+          "is_group": 0
+        },
+        "WBL Dividends": {
+          "account_number": "4302",
+          "account_type": "Indirect Income",
+          "is_group": 0
+        },
+        "WBC Dividends": {
+          "account_number": "4303",
+          "account_type": "Indirect Income",
+          "is_group": 0
+        },
+        "DGE Dividends": {
+          "account_number": "4305",
+          "account_type": "Indirect Income",
+          "is_group": 0
+        },
+        "VRT Dividends": {
+          "account_number": "4307",
+          "account_type": "Indirect Income",
+          "is_group": 0
+        },
+        "YUM Dividends": {
+          "account_number": "4308",
+          "account_type": "Indirect Income",
+          "is_group": 0
+        },
+        "KMC Dividends": {
+          "account_number": "4311",
+          "account_type": "Indirect Income",
+          "is_group": 0
+        },
+        "QTC Dividends": {
+          "account_number": "4321",
+          "account_type": "Indirect Income",
+          "is_group": 0 
+        }
       }
     },
     "Expenses": {
@@ -573,7 +669,23 @@
       "Banking Expenses": {
         "account_number": "5300",
         "account_type": "",
-        "is_group": 1
+        "is_group": 1,
+        "ChillPay Losses": {
+          "account_type": "Indirect Expense",
+          "is_group": 0
+        },
+        "ChillPay Transaction Fees": {
+          "account_type": "Indirect Expense",
+          "is_group": 0
+        },
+        "Dynamic Payment Losses": {
+          "account_type": "Indirect Expense",
+          "is_group": 0
+        },
+        "Dynamic Payment Transaction Fees": {
+          "account_type": "Indirect Expense",
+          "is_group": 0
+        }
       }
     }
   }
